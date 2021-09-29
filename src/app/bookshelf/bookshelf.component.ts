@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Book } from '../shared/book/book.model';
 
 @Component({
   selector: 'app-bookshelf',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bookshelf.component.css']
 })
 export class BookshelfComponent implements OnInit {
-
+  selectBook:Book;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  wasSelectBook(book:Book){
+    this.selectBook = book;
   }
 
 }
