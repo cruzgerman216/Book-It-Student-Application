@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-book',
@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./book.component.css']
 })
 export class BookComponent implements OnInit {
-
+  @Input('inputBook') book;
+  @Output() selectedBook = new EventEmitter<void>();
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSelectBook(){
+    this.selectedBook.emit();
   }
 
 }

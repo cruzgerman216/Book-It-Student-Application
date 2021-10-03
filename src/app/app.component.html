@@ -2,12 +2,12 @@
 <!-- div.container>div.row + tab -->
 <!-- ctrl + shift + i     Dev tools-->
 <div class="container">
-  <app-navigation></app-navigation>
+  <app-navigation (selectedFeature) = "onSelectFeature($event)"></app-navigation>
   <div class="row">
     <div class="col-md-10">
-      <app-bookshelf></app-bookshelf>
+      <app-bookshelf *ngIf="selectFeature == 'bookshelf'"></app-bookshelf>
       <hr/>
-      <app-library></app-library>
+      <app-library *ngIf="selectFeature == 'library'"></app-library>
     </div>
   </div>
 </div>
