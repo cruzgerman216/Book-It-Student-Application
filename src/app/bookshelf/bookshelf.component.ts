@@ -13,4 +13,8 @@ export class BookshelfComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  wasSelectBook(book:Book){
+    this.selectedBook = book;
+  }
+
 }

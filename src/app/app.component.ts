@@ -11,5 +11,6 @@ export class AppComponent {
   onSelectFeature(feature:string){
     this.selectFeature=feature;
     console.log(feature);
+
   }
 }

@@ -5,8 +5,8 @@
   <app-navigation (selectedFeature) = "onSelectFeature($event)"></app-navigation>
   <div class="row">
     <div class="col-md-10">
-      <app-bookshelf *ngIf="selectFeature == 'bookshelf'"></app-bookshelf>
       <hr/>
+      <app-bookshelf *ngIf="selectFeature == 'bookshelf'"></app-bookshelf>
       <app-library *ngIf="selectFeature == 'library'"></app-library>
     </div>
   </div>

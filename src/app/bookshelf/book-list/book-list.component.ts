@@ -13,6 +13,7 @@ export class BookListComponent implements OnInit {
     new Book('Title3', 'author3', 'genre3', 'https://assets.entrepreneur.com/content/3x2/2000/20191219170611-GettyImages-1152794789.jpeg')
   ]
   @Output() bookWasSelected = new EventEmitter<Book>();
+
   constructor() { }
 
   ngOnInit(): void {
@@ -22,5 +23,6 @@ export class BookListComponent implements OnInit {
     console.log(book);
     this.bookWasSelected.emit(book);
   }
+
 
 }
