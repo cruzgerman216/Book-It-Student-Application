@@ -1,6 +1,5 @@
 <div class="row mb-3">
   <div class="col-md-6" *ngFor="let elBook of allBooks">
     <app-book [inputBook]="elBook" ></app-book>
-    <button style="border:none; background-color:transparent; font-size:16px; float:right;" (click)="onSaveBook(elBook)">+</button>
   </div>
 </div>
