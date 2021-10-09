@@ -1,18 +1,18 @@
 
-<div *ngIf="selectedBook; else noSelect">
-  <h2>{{selectedBook.title}}</h2>
-  <h3>{{selectedBook.author}}</h3>
-  <p>{{selectedBook.genre}}</p>
+<div *ngIf="book; else noSelect">
+  <h2>{{book.title}}</h2>
+  <h3>{{book.author}}</h3>
+  <p>{{book.genre}}</p>
   <img src="" alt="" class="img-responsive" />
   <small>Tags</small>
   <hr />
 
   <div class="dropdown" appDropdown #r = "appDropdown">
-    <button class="btn btn-primary">Edit book</button>
-    <ul class="dropdown-menu" [ngClass]="{show: r.isOpen}">
+    <button class="btn btn-primary" (click)="onEditBook()">Edit book</button>
+    <!-- <ul class="dropdown-menu" [ngClass]="{show: r.isOpen}">
       <a class="dropdown-item">Save Book</a>
       <a class="dropdown-item">Delete Book</a>
-    </ul>
+    </ul> -->
   </div>
   
 </div>

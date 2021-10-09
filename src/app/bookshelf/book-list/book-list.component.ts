@@ -14,9 +14,7 @@ export class BookListComponent implements OnInit {
   ngOnInit(): void {
     this.myBooks = this.bookshelfService.myBooks;
   }
-  onSelectBook(book:Book){
-    this.bookshelfService.bookWasSelected.emit(book);
-  }
+
   onRemoveBook(i:number){
     this.bookshelfService.removeBook(i)
   }

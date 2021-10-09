@@ -1,4 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { Book } from 'src/app/shared/book/book.model';
+import { BookshelfService } from '../bookshelf.service';
 
 
 @Component({
@@ -7,11 +10,20 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./book-details.component.css']
 })
 export class BookDetailsComponent implements OnInit {
-  @Input('inputSelectedBook') selectedBook: string;
+  book:Book;
+  id: number
 
-  constructor() { }
+  constructor(private route:ActivatedRoute, private bookshelfService:BookshelfService, private router:Router) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe((params: Params)=>{
+      this.id = +params['id']
+      this.book = this.bookshelfService.getBook(this.id);
+    })
   }
 
+  onEditBook(){
+    // localhost:4200/bookshelf/edit
+    this.router.navigate(['edit'], {relativeTo:this.route})
+  }
 }

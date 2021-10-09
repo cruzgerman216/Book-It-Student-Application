@@ -8,16 +8,10 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class NavigationComponent implements OnInit {
   show: boolean = false;
   collapse: boolean = true;
-  @Output() selectedFeature = new EventEmitter<string>();
 
   constructor() { }
 
   ngOnInit(): void {
-  }
-
-  onSelectFeature(feature:string){
-    this.selectedFeature.emit(feature)
-
   }
 
 }

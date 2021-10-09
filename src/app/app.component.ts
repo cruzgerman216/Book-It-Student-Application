@@ -6,11 +6,4 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  selectFeature:string = 'bookshelf';
-
-  onSelectFeature(feature:string){
-    this.selectFeature=feature;
-    console.log(feature);
-
-  }
 }

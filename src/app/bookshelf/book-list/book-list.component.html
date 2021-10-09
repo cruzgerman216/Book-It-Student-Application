@@ -1,6 +1,6 @@
 <div class="row mb-3" *ngFor="let elBook of myBooks; let i = index">
   <div class="col-md-12">
-    <app-book [inputBook]="elBook" (click)="onSelectBook(elBook)"></app-book>
+    <app-book [inputBook]="elBook" [routerLink]="i"></app-book>
     <button
       style="
         font-size: 16px;
@@ -17,6 +17,8 @@
 <hr />
 <div class="row">
   <div class="col-md-12">
-    <button class="btn btn-primary">Add New books</button>
+    <!-- localhost:4200/new -->
+    <!-- localhost:4200/bookshelf/new -->
+    <button class="btn btn-primary" routerLink="new">Add New books</button>
   </div>
 </div>
