@@ -1,0 +1,11 @@
+.colortext{
+    background-color: rgb(87, 87, 153);
+    color:white;
+}
+.author{
+    color: rgb(153, 152, 152);
+    font-size: 12px;
+}
+a{
+    color:black;
+}

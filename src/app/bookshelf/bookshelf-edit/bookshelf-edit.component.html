@@ -1,2 +1,62 @@
-<div *ngIf="isEditMode === true">Edit Book</div>
-<div *ngIf="isEditMode === false">Add New Book</div>
+<!-- export class Book {
+    constructor(
+      public title: string,
+      public author: string,
+      public genre: string,
+      public coverImagePath: string,
+      public price?:number
+    ) {}
+  }
+   -->
+
+<h1>{{ isEditMode ? "Edit Mode" : "Add New Book" }}</h1>
+<form class="form-group" [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+  <label>Title: </label>
+  <input
+    formControlName="title"
+    class="form-control"
+    name="title"
+    id="title"
+    type="text"
+  />
+  <label>Author: </label>
+  <input
+    formControlName="author"
+    class="form-control"
+    name="author"
+    id="author"
+    type="text"
+  />
+  <label>Price: </label>
+  <input
+    formControlName="price"
+    class="form-control"
+    name="price"
+    id="price"
+    type="text"
+  />
+  <label>Genre: </label>
+  <select formControlName="genre" class="form-control">
+    <option value="Horror">Horror</option>
+    <option value="Science">Science</option>
+    <option value="Fiction">Fiction</option>
+    <option value="Non-fiction">Non-fiction</option>
+  </select>
+  <label>Cover Image Path: </label>
+  <input
+    formControlName="coverImagePath"
+    class="form-control"
+    name="coverImagePath"
+    id="coverImagePath"
+    type="text"
+  />
+  <img [src]="bookForm.value.coverImagePath" width="100px"/>
+
+  <hr />
+  <div>
+    <button [disabled]="bookForm.invalid" class="btn btn-success" type="submit" style="margin-right: 5px">
+      {{ isEditMode ? "Save Book" : "Add Book" }}
+    </button>
+    <button type="button" class="btn btn-light" (click)="onCancel()">Cancel</button>
+  </div>
+</form>
