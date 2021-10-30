@@ -14,6 +14,9 @@ export class BookResultsComponent implements OnInit {
 
   ngOnInit(): void {
     this.allBooks = this.libraryService.allBooks;
+    this.libraryService.booksSubject.subscribe(books=>{
+      this.allBooks = books;
+    })
   }
 
   onSaveBook(book: Book) {
