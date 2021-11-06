@@ -19,12 +19,22 @@
     [class.collapse]="collapse"
   >
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/bookshelf" routerLinkActive="active"
+      <li class="nav-item" *ngIf="isAuthenticated">
+        <a class="nav-link" routerLink="/bookshelf" routerLinkActive="active" 
           >Bookshelf <span class="sr-only">(current)</span></a
         >
       </li>
       <li class="nav-item">
+        <a class="nav-link" routerLink="/auth" routerLinkActive="active"
+          >Authenticate <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item" *ngIf="isAuthenticated">
+        <a class="nav-link" *ngIf="isAuthenticated" routerLinkActive="active" (click)="onLogout()"
+          >Logout <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item" *ngIf="isAuthenticated">
         <a class="nav-link" routerLink="/library" routerLinkActive="active"
           >Library</a
         >
@@ -54,8 +64,8 @@
           aria-labelledby="navbarDropdown"
           [class.show]="show"
         >
-          <a class="dropdown-item" href="#">Save Data</a>
-          <a class="dropdown-item" href="#">Fetch Data</a>
+          <a class="dropdown-item" (click)="onSaveData()" style="cursor:pointer">Save Data</a>
+          <a class="dropdown-item" (click)="onFetchData()" style="cursor:pointer">Fetch Data</a>
         </div>
       </li>
     </ul>

@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth/auth-guard.service';
+import { AuthComponent } from './auth/auth.component';
 import { BookDetailsComponent } from './bookshelf/book-details/book-details.component';
+import { BooksResolverService } from './bookshelf/books-resolvers.service';
 import { BookshelfEditComponent } from './bookshelf/bookshelf-edit/bookshelf-edit.component';
 import { BookshelfHomeComponent } from './bookshelf/bookshelf-home/bookshelf-home.component';
 import { BookshelfComponent } from './bookshelf/bookshelf.component';
@@ -14,6 +17,7 @@ const routes: Routes = [
     //localhost:4200/bookshelf/
     {
         path: 'bookshelf', component: BookshelfComponent, 
+        canActivate: [AuthGuard],
         children: [
             //localhost:4200/bookshelf
             {
@@ -25,11 +29,11 @@ const routes: Routes = [
             },
             //localhost:4200/bookshelf/:id
             {
-                path: ':id', component: BookDetailsComponent
+                path: ':id', component: BookDetailsComponent, resolve: [BooksResolverService]
             },
             //localhost:4200/bookshelf/:id/edit,
             {
-                path:':id/edit', component: BookshelfEditComponent
+                path:':id/edit', component: BookshelfEditComponent, resolve: [BooksResolverService]
             }
 
         ]
@@ -37,6 +41,9 @@ const routes: Routes = [
     //localhost:4200/library
     {
         path: 'library', component: LibraryComponent
+    },
+    {
+        path: 'auth', component: AuthComponent
     },
     //localhost:4200/pagedoesnotexist
     {
