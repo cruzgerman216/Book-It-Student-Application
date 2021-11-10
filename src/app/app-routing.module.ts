@@ -14,30 +14,7 @@ const routes: Routes = [
     {
         path: '',  redirectTo: 'bookshelf', pathMatch:'full'
     },
-    //localhost:4200/bookshelf/
-    {
-        path: 'bookshelf', component: BookshelfComponent, 
-        canActivate: [AuthGuard],
-        children: [
-            //localhost:4200/bookshelf
-            {
-                path: '', component: BookshelfHomeComponent, pathMatch:'full'
-            },
-            //localhost:4200/bookshelf/new
-            {
-                path: 'new', component: BookshelfEditComponent
-            },
-            //localhost:4200/bookshelf/:id
-            {
-                path: ':id', component: BookDetailsComponent, resolve: [BooksResolverService]
-            },
-            //localhost:4200/bookshelf/:id/edit,
-            {
-                path:':id/edit', component: BookshelfEditComponent, resolve: [BooksResolverService]
-            }
 
-        ]
-    },
     //localhost:4200/library
     {
         path: 'library', component: LibraryComponent

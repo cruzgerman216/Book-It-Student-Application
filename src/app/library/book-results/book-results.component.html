@@ -1,3 +1,4 @@
+<app-alert [message]="alert" *ngIf="alert"></app-alert>
 <div class="row mb-3">
   <div class="col-md-6" *ngFor="let elBook of allBooks">
     <app-book [inputBook]="elBook"></app-book>
@@ -9,6 +10,8 @@
         float: right;
       "
       (click)="onSaveBook(elBook)"
-    >+</button>
+    >
+      +
+    </button>
   </div>
 </div>

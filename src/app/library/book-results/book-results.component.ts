@@ -10,6 +10,7 @@ import { LibraryService } from '../library.service';
 })
 export class BookResultsComponent implements OnInit {
   allBooks: Book[] = []
+  alert:string = null;
   constructor(private libraryService: LibraryService, private bookshelfService: BookshelfService) { }
 
   ngOnInit(): void {
@@ -21,6 +22,11 @@ export class BookResultsComponent implements OnInit {
 
   onSaveBook(book: Book) {
     this.bookshelfService.saveBook(book);
+    this.alert = "You saved " + book.title + " by " + book.author;
+    setTimeout(()=>{
+      this.alert = null
+    }, 4000)
   }
 
+  
 }

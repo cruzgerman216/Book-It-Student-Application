@@ -7,13 +7,14 @@ export class BookshelfService {
   private myBooks: Book[] = [];
 
   bookSubject = new Subject<Book[]>();
-
+  bookSelected = new Subject<Book>();
   saveBook(book: Book) {
     this.myBooks.push(book);
-    this.bookSubject.next(this.myBooks.slice());
+    // this.bookSubject.next(this.myBooks.slice());
   }
 
   removeBook(i: number) {
+    this.bookSelected.next(this.myBooks[i])
     this.myBooks.splice(i, 1);
     this.bookSubject.next(this.myBooks.slice());
   }
